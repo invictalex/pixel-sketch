@@ -1,0 +1,43 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+body
+{
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+div
+{
+    border: white solid 2px;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.pad
+{
+    flex-shrink: 0;
+    height: 700px;
+    width: 700px;
+}
+
+.toolbar
+{
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
