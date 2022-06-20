@@ -10,9 +10,9 @@ In terms of functionality, the tool will have three toggle checkboxes; pencil/er
 
 ----------STAGE 1: BASIC VISUAL SETUP----------
 
-1. Map out how the tool will look.
+1. Map out how the tool will look. ✔
 
-2. Create a very basic visual prototype of the tool using HTML & CSS.
+2. Create a very basic visual prototype of the tool using HTML & CSS. ✔
 
 ----------STAGE 2: FUNCTIONALITY----------
 

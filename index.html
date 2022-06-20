@@ -8,21 +8,41 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Etch-a-Sketch</h1>
-    </div>
-    <div class="container">
-        <div class="pad"></div>
-        <div class="toolbar">
-            <div class="tools">Pencil</div>
-            <div class="tools">Color</div>
-            <div class="tools">Eraser</div>
-            <div class="tools">Grid Size</div>
-            <div class="tools">Reset</div>
+    <header>
+        <p>Etch-a-Sketch</p>
+    </header>
+    <section>
+        <div class="interface">
+            <div class="grid"></div>
+            <div class="tools">
+                <div class="hex-select"><button>Color</button></div>
+                <div class="toggle marker-type">
+                    <div class="opt1"><p>Pencil</p></div>
+                    <div class="toggle-switch">
+                        <input type="checkbox">
+                    </div>
+                    <div class="opt2"><p>Eraser</p></div>
+                </div>
+                <div class="toggle marker-size">
+                    <div class="opt1"><p>Small</p></div>
+                    <div class="toggle-switch">
+                        <input type="checkbox">
+                    </div>
+                    <div class="opt2"><p>Large</p></div>
+                </div>
+                <div class="toggle color-mode">
+                    <div class="opt1">Dark</div>
+                    <div class="toggle-switch">
+                        <input type="checkbox">
+                    </div>
+                    <div class="opt2">Light</div>
+                </div>
+                <div class="reset"><button>Reset</button></div>
+            </div>
         </div>
-    </div>
-    <script src="script.js">
-
-    </script>
+        
+    </section>
+    
+    <script src="script.js"></script>
 </body>
 </html>
