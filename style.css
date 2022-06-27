@@ -11,9 +11,14 @@ body
     height: 100vh;
 }
 
-.interface>.grid, .interface>.tools
+.grid, .tools
 {
     border: solid 1px cornflowerblue;
+}
+
+.tools
+{
+    border-left: 0px;
 }
 
 .interface
@@ -32,6 +37,100 @@ body
     direction: rtl;
     -webkit-appearance: none;
     appearance: none;
+}
+
+
+.swatchBox
+{
+    -webkit-appearance: none;
+  appearance: none;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+}
+
+.swatchBox:checked
+{
+    border: solid 3px rgb(227, 227, 227);
+}
+
+.swatchBox#default
+{
+    background-color: white;
+}
+.swatchBox#grey
+{
+    background-color: grey;
+}
+.swatchBox#red
+{
+    background-color: red;
+}
+.swatchBox#orange
+{
+    background-color: orange;
+}
+.swatchBox#yellow
+{
+    background-color: yellow;
+}
+.swatchBox#green
+{
+    background-color: green;
+}
+.swatchBox#blue
+{
+    background-color: blue;
+}
+.swatchBox#purple
+{
+    background-color: purple;
+}
+
+/*---------------------COLOR MODE: LIGHT-----------------------*/
+
+body.light
+{
+    color:black;
+    background-color: white;
+}
+
+.grid.light, .tools.light
+{
+    border: solid 1px black;
+}
+
+.swatchBox#default.light
+{
+    background-color: black;
+}
+.swatchBox#grey.light
+{
+    background-color: grey;
+}
+.swatchBox#red.light
+{
+    background-color: rosybrown;
+}
+.swatchBox#orange.light
+{
+    background-color: teal;
+}
+.swatchBox#yellow.light
+{
+    background-color: tan;
+}
+.swatchBox#green.light
+{
+    background-color: goldenrod;
+}
+.swatchBox#blue.light
+{
+    background-color: blueviolet;
+}
+.swatchBox#purple.light
+{
+    background-color: brown;
 }
 
 
@@ -86,12 +185,15 @@ section
     align-items: center;
 }
 
-.tools>.hex-select
+.color-picker
 {
     flex: 6;
 
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .tools>.toggle, .tools>.reset
