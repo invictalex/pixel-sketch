@@ -55,7 +55,7 @@ function draw()
 {
     grid.onmousemove = (e) =>
     {
-        if (mouseDown && inside)
+        if (mouseDown)
         {
             var square = e.path[0];
             if (square.classList.contains("square"))
@@ -127,6 +127,9 @@ function changeColorMode()
     var tools = document.querySelector(".tools");
     var grid = document.querySelector(".grid");
     var swatch = document.querySelectorAll(".swatchBox");
+    var slider = document.querySelector(".slider");
+    var titles = document.querySelectorAll(".title");
+    var button = document.querySelector("button");
 
     if (colorModeLight.checked == true)
     {
@@ -138,11 +141,18 @@ function changeColorMode()
         tools.classList.add("light");
         grid.classList.add("light");
         body.classList.add("light");
+        slider.classList.add("light");
+        button.classList.add("light");
 
         swatch.forEach(color  =>
         {
             color.classList.add("light");
         })
+
+        titles.forEach(title  =>
+            {
+                title.classList.add("light");
+            })
 
         for (let i = 0; i < 7; i++)
         {
@@ -163,6 +173,14 @@ function changeColorMode()
         tools.classList.remove("light");
         grid.classList.remove("light");
         body.classList.remove("light");
+        body.classList.remove("light");
+        slider.classList.remove("light");
+        button.classList.remove("light");
+
+        titles.forEach(title  =>
+            {
+                title.classList.remove("light");
+            })
 
         swatch.forEach(color  =>
         {

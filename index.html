@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/huebee@2/dist/huebee.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=VT323&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch</title>
 </head>
 <body>
     <BODY ondragstart="return false;" ondrop="return false;"></BODY>
     <header>
-        <p>Etch-a-Sketch</p>
+        <h3>Etch-a-Sketch</h3>
     </header>
     <section>
         <div class="interface">
             <div class="grid"></div>
             <div class="tools">
-                <div class="color-picker">
+                <div class="marker-settings">
+                    <div class="title">
+                        <h4>Marker</h4>
+                    </div>
+                    <div class="color-picker">
                         <input type="radio" name="color" onclick="selectedColor = pickColor(0)" value="white" class="swatchBox" id="default"></input>
                         <input type="radio" name="color" onclick="selectedColor = pickColor(1)" value="grey" class="swatchBox" id="grey"></input>
                         <input type="radio" name="color" onclick="selectedColor = pickColor(2)" value="red" class="swatchBox" id="red"></input>
@@ -26,27 +32,29 @@
                         <input type="radio" name="color" onclick="selectedColor = pickColor(5)" value="green" class="swatchBox" id="green"></input>
                         <input type="radio" name="color" onclick="selectedColor = pickColor(6)" value="blue" class="swatchBox" id="blue"></input>
                         <input type="radio" name="color" onclick="selectedColor = pickColor(7)" value="purple" class="swatchBox" id="purple"></input>
-                </div>
-
-                <div class="toggle marker-type">
-                    <div class="opt1"><p>Pencil</p></div>
-                    <div class="toggle-switch">
-                        <input type="checkbox" id="eraserCheckbox">
                     </div>
-                    <div class="opt2"><p>Eraser</p></div>
-                </div>
-                <div class="toggle color-mode">
-                    <div class="opt1">Dark</div>
-                    <div class="toggle-switch">
-                        <input type="checkbox" id="colorModeChbx">
+                    <div class="toggle">
+                        <div class="toggle-switch"> <input type="checkbox" id="eraserCheckbox"> </div>
+                        <div><p>Eraser</p></div>
                     </div>
-                    <div class="opt2">Light</div>
                 </div>
-                <div class="slideContainer">
-                    <label for="gridSlider">Marker Size</label>
-                    <input type="range" min="10" max="100" value="60" class="slider" id="gridSlider" onmouseup="genGrid(slider.value)">
+                <div class="artboard-settings">
+                    <div class="title">
+                        <h4>Settings</h4>
+                    </div>
+                    <div class="toggle">
+                        <div>Dark</div>
+                        <div class="toggle-switch"> <input type="checkbox" id="colorModeChbx"> </div>
+                        <div>Light</div>
+                    </div>
+                    <div class="reset"><button>New Artboard</button></div>
+                    <div class="slideContainer">
+                        <label for="gridSlider">Marker Size</label>
+                        <input type="range" min="10" max="100" value="60" class="slider" id="gridSlider" onmouseup="genGrid(slider.value)">
+                    </div>
+                   
                 </div>
-                <div class="reset"><button>New Artboard</button></div>
+                
                 
             </div>
         </div>
