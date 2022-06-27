@@ -27,6 +27,14 @@ body
     height: 800px;
 }
 
+#gridSlider
+{
+    direction: rtl;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+
 
 /*FLEXBOX*/
 
@@ -63,6 +71,9 @@ section
 .interface>.grid
 {
     flex-shrink: 0;
+
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .interface>.tools
@@ -91,7 +102,25 @@ section
     justify-content: space-around;
     align-items: center;
     gap: 10px;
-
 }
+
+.tools>.slideContainer
+{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.square
+{
+    flex-shrink: 0;
+}
+
+
 
 

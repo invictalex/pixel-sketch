@@ -23,13 +23,6 @@
                     </div>
                     <div class="opt2"><p>Eraser</p></div>
                 </div>
-                <div class="toggle marker-size">
-                    <div class="opt1"><p>Small</p></div>
-                    <div class="toggle-switch">
-                        <input type="checkbox">
-                    </div>
-                    <div class="opt2"><p>Large</p></div>
-                </div>
                 <div class="toggle color-mode">
                     <div class="opt1">Dark</div>
                     <div class="toggle-switch">
@@ -37,7 +30,12 @@
                     </div>
                     <div class="opt2">Light</div>
                 </div>
-                <div class="reset"><button>Reset</button></div>
+                <div class="slideContainer">
+                    <label for="gridSlider">Marker Size</label>
+                    <input type="range" min="10" max="100" value="60" class="slider" id="gridSlider">
+                </div>
+                <div class="reset"><button>New Artboard</button></div>
+                
             </div>
         </div>
         
