@@ -5,8 +5,8 @@ var slider = document.querySelector("#gridSlider");
 var resetBtn = document.querySelector(".reset");
 var eraser = document.querySelector("#eraserCheckbox");
 var colorModeLight = document.querySelector("#colorModeChbx");
-var darkColors = ["white", "grey", "red", "orange", "yellow", "green", "blue", "purple"];
-var lightColors = ["black", "grey", "rosybrown", "teal", "tan", "goldenrod", "bueviolet", "brown"];
+var darkColors = ["white", "lightgray", "crimson", "darkorange", "gold", "mediumseagreen", "dodgerblue", "darkorchid"];
+var lightColors = ["black", "gainsboro", "indianred", "lightsalmon", "khaki", "darkolivegreen", "lightblue", "peachpuff"];
 
 
 //                                      INITIAL SETTINGS
@@ -23,8 +23,6 @@ var selectedColor;
 trackMousePress();
 
 genGrid(slider.value);
-
-changeColorMode();
 
 resetBtn.onclick = () => genGrid(slider.value);
 
@@ -76,15 +74,10 @@ function draw()
 function pickColor(num)
 {
     if (colorMode == "dark")
-    {
-        
         return darkColors[num];
-    } 
+     
     else if (colorMode == "light")
-    {
-        
         return lightColors[num];
-    }
 }
 
 
@@ -92,7 +85,7 @@ function markerColor()
 {
     if (eraser.checked == true)
         
-        return eraserColor;
+        return "transparent";
     
     else if (eraser.checked == false && selectedColor !== undefined)
 
@@ -113,7 +106,6 @@ function genGrid(num)
     {
         var square = document.createElement("div");
         square.classList.add("square");
-        /*square.setAttribute("id", `${i}`);*/
         square.setAttribute(`style`, `width:${squarePx}px; height:${squarePx}px;`);
         grid.appendChild(square);
     }
@@ -130,6 +122,7 @@ function changeColorMode()
     var slider = document.querySelector(".slider");
     var titles = document.querySelectorAll(".title");
     var button = document.querySelector("button");
+    var toggles = document.querySelectorAll(".switch");
 
     if (colorModeLight.checked == true)
     {
@@ -154,7 +147,12 @@ function changeColorMode()
                 title.classList.add("light");
             })
 
-        for (let i = 0; i < 7; i++)
+        toggles.forEach(toggle =>
+            {
+                toggle.classList.add("light");
+            })
+
+        for (let i = 0; i < 8; i++)
         {
             if (selectedColor == darkColors[i])
             {
@@ -186,8 +184,12 @@ function changeColorMode()
         {
             color.classList.remove("light");
         })
+        toggles.forEach(toggle =>
+            {
+                toggle.classList.remove("light");
+            })
 
-        for (let i = 0; i < 7; i++)
+        for (let i = 0; i < 8; i++)
         {
             if (selectedColor == lightColors[i])
             {
@@ -199,25 +201,26 @@ function changeColorMode()
 
 function changeArtboardColors()
 {
-    oldMode = lightColors;
-    newMode = darkColors;
+    altMode = lightColors;
+    currentMode = darkColors;
 
     if (colorModeLight.checked == true)
     {
-        oldMode = darkColors;
-        newMode = lightColors;
+        altMode = darkColors;
+        currentMode = lightColors;
     }
+
     var squares = document.querySelectorAll(".square");
-    console.log(squares);
 
     squares.forEach(square =>
+    {
+        for (let i = 0; i < 8; i++)
         {
-            for (let i = 0; i < 7; i++)
+            if (square.style.backgroundColor === altMode[i])
             {
-                if (square.style.backgroundColor == oldMode[i])
-                {
-                    square.style.backgroundColor = newMode[i];
-                }
-            }
-        })
+                console.log("yes");
+                square.style.backgroundColor = currentMode[i];
+            } 
+        }
+    });
 }

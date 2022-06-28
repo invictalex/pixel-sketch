@@ -13,7 +13,8 @@
 <body>
     <BODY ondragstart="return false;" ondrop="return false;"></BODY>
     <header>
-        <h3>Etch-a-Sketch</h3>
+        <h3>Pixel Sketch</h3>
+        <p>A <b>vanilla</b> JavaScript programme written by Alex Christodoulou.</p>
     </header>
     <section>
         <div class="interface">
@@ -24,18 +25,18 @@
                         <h4>Marker</h4>
                     </div>
                     <div class="color-picker">
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(0)" value="white" class="swatchBox" id="default"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(1)" value="grey" class="swatchBox" id="grey"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(2)" value="red" class="swatchBox" id="red"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(3)" value="orange" class="swatchBox" id="orange"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(4)" value="yellow" class="swatchBox" id="yellow"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(5)" value="green" class="swatchBox" id="green"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(6)" value="blue" class="swatchBox" id="blue"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(7)" value="purple" class="swatchBox" id="purple"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(0)"  class="swatchBox" id="default"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(1)" class="swatchBox" id="grey"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(2)" class="swatchBox" id="red"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(3)"  class="swatchBox" id="orange"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(4)"  class="swatchBox" id="yellow"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(5)" class="swatchBox" id="green"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(6)" class="swatchBox" id="blue"></input>
+                        <input type="radio" name="color" onclick="selectedColor = pickColor(7)"  class="swatchBox" id="purple"></input>
                     </div>
                     <div class="toggle">
-                        <div class="toggle-switch"> <input type="checkbox" id="eraserCheckbox"> </div>
-                        <div><p>Eraser</p></div>
+                        <div> <input type="checkbox" class="switch" id="eraserCheckbox"> </div>
+                        <div class="toggle-text"><p>Eraser</p></div>
                     </div>
                 </div>
                 <div class="artboard-settings">
@@ -43,9 +44,9 @@
                         <h4>Settings</h4>
                     </div>
                     <div class="toggle">
-                        <div>Dark</div>
-                        <div class="toggle-switch"> <input type="checkbox" id="colorModeChbx"> </div>
-                        <div>Light</div>
+                        <div class="toggle-text">Dark</div>
+                        <div> <input type="checkbox" class="switch" id="colorModeChbx"> </div>
+                        <div class="toggle-text">Light</div>
                     </div>
                     <div class="reset"><button>New Artboard</button></div>
                     <div class="slideContainer">

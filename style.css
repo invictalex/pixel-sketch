@@ -48,14 +48,15 @@ body
 {
     -webkit-appearance: none;
   appearance: none;
-    width: 37px;
-    height: 37px;
+    width: 33px;
+    height: 33px;
     border-radius: 50%;
 }
 
 .swatchBox:checked
 {
-    border: solid 3px rgb(227, 227, 227);
+    outline: solid 2px cornflowerblue;
+    border: solid 2px black;
 }
 
 .swatchBox#default
@@ -64,31 +65,33 @@ body
 }
 .swatchBox#grey
 {
-    background-color: grey;
+    background-color: lightgray;
 }
+
+
 .swatchBox#red
 {
-    background-color: red;
+    background-color: crimson;
 }
 .swatchBox#orange
 {
-    background-color: orange;
+    background-color: darkorange;
 }
 .swatchBox#yellow
 {
-    background-color: yellow;
+    background-color: gold;
 }
 .swatchBox#green
 {
-    background-color: green;
+    background-color: mediumseagreen;
 }
 .swatchBox#blue
 {
-    background-color: blue;
+    background-color: dodgerblue;
 }
 .swatchBox#purple
 {
-    background-color: purple;
+    background-color: darkorchid;
 }
 
 .title
@@ -100,12 +103,14 @@ body
 button
 {
     -webkit-appearance: none;
-  appearance: none;
+    appearance: none;
 	background: none;
 	color: inherit;
 	border: solid 1px cornflowerblue;
-	padding: 5px;
+	padding: 10px;
+    border-radius: 15px;
 	font: inherit;
+    font-size: small;
 }
 
 button:active
@@ -118,7 +123,70 @@ button:active
 {
     width: 80%;
 }
+
+.switch
+{
+    -webkit-appearance: none;
+    position:relative;
+    width: 34px;
+    height: 16px;
+    background: black;
+    outline: cornflowerblue solid 1px;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.switch:checked
+{
+    background-color: cornflowerblue;
+}
+
+
+.switch:before
+{
+    content: "";
+    position:absolute;
+    width: 16px;
+    height: 16px;
+    transform: scale(0.7);
+    border-radius: 17.5px;
+    background: cornflowerblue;
+    transition: 0.5s ease-in-out;
+    left: 0;
+}
+
+.switch:checked:before
+{
+    left: 18px;
+    background: white;
+
+}
 /*---------------------COLOR MODE: LIGHT-----------------------*/
+
+.switch.light
+{
+    background: white;
+    outline: black solid 1px;
+}
+
+.switch:checked.light
+{
+    background: lightgreen;
+}
+
+.switch.light:before
+{
+    background: black;
+}
+
+.switch:checked.light#colorModeChbx
+{
+    background: white;
+}
+    
+
+
+
 
 body.light
 {
@@ -136,37 +204,44 @@ body.light
     border-left: 0px;
 }
 
+.swatchBox:checked.light
+{
+    outline: solid 2px black;
+    border: solid 2px white;
+}
+
 .swatchBox#default.light
 {
     background-color: black;
 }
 .swatchBox#grey.light
 {
-    background-color: grey;
+    background-color: gainsboro;
 }
+
 .swatchBox#red.light
 {
-    background-color: rosybrown;
+    background-color: indianred;
 }
 .swatchBox#orange.light
 {
-    background-color: teal;
+    background-color: lightsalmon;
 }
 .swatchBox#yellow.light
 {
-    background-color: tan;
+    background-color: khaki;
 }
 .swatchBox#green.light
 {
-    background-color: goldenrod;
+    background-color: darkolivegreen;
 }
 .swatchBox#blue.light
 {
-    background-color: blueviolet;
+    background-color: lightblue;
 }
 .swatchBox#purple.light
 {
-    background-color: brown;
+    background-color: peachpuff;
 }
 
 .title.light
@@ -200,8 +275,8 @@ button.light:active
 {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: black;
     border-radius: 50%;
 }
@@ -218,8 +293,8 @@ button.light:active
 .slider 
 {
     -webkit-appearance: none;
-    width: 100%;
-    height: 3px;
+    width: 90%;
+    height: 2px;
     background: #ffffff;
     outline: none;
     -webkit-transition: .2s;
@@ -231,16 +306,16 @@ button.light:active
 {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: cornflowerblue;
     border-radius: 50%;
 }
   
 .slider::-moz-range-thumb 
 {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: cornflowerblue;
     border-radius: 50%;
 }
@@ -260,8 +335,10 @@ header
     flex: 1;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 section
@@ -332,9 +409,18 @@ section
 {
 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+.toggle-text
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    font-size: small;
 }
 
 .slideContainer
