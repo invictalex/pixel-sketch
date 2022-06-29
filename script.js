@@ -55,7 +55,7 @@ function mobileWarning()
     
     if (mobile) 
     {
-        alert("This game has not been optimised for smart devices. Please return on a computer");              
+        alert("This game has not been optimised for smart devices yet. Please return on a computer!");              
     } else 
     {
         return;
