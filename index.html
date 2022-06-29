@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=VT323&display=swap" rel="stylesheet">
-    <title>Etch-a-Sketch</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/cornflowerblue.png" width="80%" class="favicon">
+
+
+    <title>Pixel Sketch | By Alex Christodoulou</title>
 </head>
 <body>
     <BODY ondragstart="return false;" ondrop="return false;"></BODY>
     <header>
         <h3>Pixel Sketch</h3>
-        <p>A <b>vanilla</b> JavaScript programme written by Alex Christodoulou.</p>
+        <p>An entirely <b>vanilla</b> JavaScript programme written by Alex Christodoulou.</p>
     </header>
     <section>
         <div class="interface">
@@ -25,14 +28,14 @@
                         <h4>Marker</h4>
                     </div>
                     <div class="color-picker">
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(0)"  class="swatchBox" id="default"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(1)" class="swatchBox" id="grey"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(2)" class="swatchBox" id="red"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(3)"  class="swatchBox" id="orange"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(4)"  class="swatchBox" id="yellow"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(5)" class="swatchBox" id="green"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(6)" class="swatchBox" id="blue"></input>
-                        <input type="radio" name="color" onclick="selectedColor = pickColor(7)"  class="swatchBox" id="purple"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(0)"  class="swatchBox" id="default"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(1)" class="swatchBox" id="grey"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(2)" class="swatchBox" id="red"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(3)"  class="swatchBox" id="orange"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(4)"  class="swatchBox" id="yellow"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(5)" class="swatchBox" id="green"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(6)" class="swatchBox" id="blue"></input>
+                        <input type="radio" name="color" onclick="colorInput = getColorInput(7)"  class="swatchBox" id="purple"></input>
                     </div>
                     <div class="toggle">
                         <div> <input type="checkbox" class="switch" id="eraserCheckbox"> </div>
@@ -51,17 +54,12 @@
                     <div class="reset"><button>New Artboard</button></div>
                     <div class="slideContainer">
                         <label for="gridSlider">Marker Size</label>
-                        <input type="range" min="10" max="100" value="60" class="slider" id="gridSlider" onmouseup="genGrid(slider.value)">
+                        <input type="range" min="10" max="100" value="60" class="slider" onmouseup="activateButton()">
                     </div>
-                   
                 </div>
-                
-                
             </div>
         </div>
-        
     </section>
-    
     <script src="script.js"></script>
 </body>
 </html>

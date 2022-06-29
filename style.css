@@ -5,6 +5,8 @@
     font-family: 'Trispace', sans-serif;
 }
 
+/*                                              GENERAL*/
+
 body
 {
     color: cornflowerblue;
@@ -12,8 +14,6 @@ body
     height: 100vh;
     transition-duration: 0.6s;
 }
-
-
 
 .grid, .tools
 {
@@ -30,19 +30,36 @@ body
     width: 980px;
 }
 
-.interface>.grid
+.grid
 {
     width: 800px;
     height: 800px;
 }
 
-#gridSlider
+.title
 {
-    direction: rtl;
-    -webkit-appearance: none;
-    appearance: none;
+    padding: 5px;
+    border-bottom: solid 1px cornflowerblue;
 }
 
+.toggle-text
+{
+    padding-bottom: 5px;
+    font-size: small;
+}
+
+.favicon
+{
+    width: 80%;
+    height: 80%;
+}
+
+/*                                              COLOR PALETTE*/
+
+.color-picker
+{
+    width: 80%;
+}
 
 .swatchBox
 {
@@ -58,7 +75,6 @@ body
     outline: solid 2px cornflowerblue;
     border: solid 2px black;
 }
-
 .swatchBox#default
 {
     background-color: white;
@@ -67,8 +83,6 @@ body
 {
     background-color: lightgray;
 }
-
-
 .swatchBox#red
 {
     background-color: crimson;
@@ -94,11 +108,8 @@ body
     background-color: darkorchid;
 }
 
-.title
-{
-    padding: 5px;
-    border-bottom: solid 1px cornflowerblue;
-}
+
+/*                                              BUTTON*/
 
 button
 {
@@ -119,10 +130,14 @@ button:active
     color: black;
 }
 
-.color-picker
+.auto
 {
-    width: 80%;
+    background-color: cornflowerblue;
+    color: black;
+    border-radius: 15px;
 }
+
+/*                                              TOGGLE SWITCHES*/
 
 .switch
 {
@@ -161,31 +176,51 @@ button:active
     background: white;
 
 }
-/*---------------------COLOR MODE: LIGHT-----------------------*/
 
-.switch.light
+/*                                              SLIDER*/
+
+.slidecontainer 
 {
-    background: white;
-    outline: black solid 1px;
+    width: 100%;
+}
+  
+.slider 
+{
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 90%;
+    height: 2px;
+    background: #ffffff;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+  
+.slider::-webkit-slider-thumb 
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: cornflowerblue;
+    border-radius: 50%;
+}
+  
+.slider::-moz-range-thumb 
+{
+    width: 12px;
+    height: 12px;
+    background: cornflowerblue;
+    border-radius: 50%;
 }
 
-.switch:checked.light
-{
-    background: lightgreen;
-}
-
-.switch.light:before
-{
-    background: black;
-}
-
-.switch:checked.light#colorModeChbx
-{
-    background: white;
-}
-    
+/*----------------------------------------------LIGHT MODE------------------------------------------------*/
 
 
+
+/*                                              GENERAL: LIGHT*/
 
 
 body.light
@@ -203,6 +238,14 @@ body.light
 {
     border-left: 0px;
 }
+
+.title.light
+{
+    border-bottom: black solid 1px;
+}
+
+
+/*                                              COLOR PALETTE: LIGHT*/
 
 .swatchBox:checked.light
 {
@@ -244,32 +287,63 @@ body.light
     background-color: peachpuff;
 }
 
-.title.light
+/*                                              TOGGLE SWITCH: LIGHT*/
+
+.switch.light
 {
-    border-bottom: black solid 1px;
+    background: white;
+    outline: black solid 1px;
 }
+
+.switch:checked.light
+{
+    background: lightgreen;
+}
+
+.switch.light:before
+{
+    background: black;
+}
+
+.switch:checked.light#colorModeChbx
+{
+    background: white;
+}
+    
+
+
+/*                                              BUTTON: LIGHT*/
+
 
 button.light
 {
     border: black solid 1px;
 }
-
-button.light:active
+button.light.active
 {
     background-color: black;
     color: white;
 }
+.autoLight
+{
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+}
+
+/*                                              SLIDER: LIGHT*/
 
 .slider.light
 {
     -webkit-appearance: none;
-    width: 100%;
+    width: 90%;
     height: 3px;
     background: grey;
     outline: none;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    border-radius: 5px;}
+    border-radius: 5px;
+}
 
 .slider.light::-webkit-slider-thumb  
 {
@@ -282,46 +356,7 @@ button.light:active
 }
 
 
-
-/*SLIDER*/
-
-.slidecontainer 
-{
-    width: 100%;
-}
-  
-.slider 
-{
-    -webkit-appearance: none;
-    width: 90%;
-    height: 2px;
-    background: #ffffff;
-    outline: none;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    border-radius: 5px;
-}
-  
-.slider::-webkit-slider-thumb 
-{
-    -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    background: cornflowerblue;
-    border-radius: 50%;
-}
-  
-.slider::-moz-range-thumb 
-{
-    width: 12px;
-    height: 12px;
-    background: cornflowerblue;
-    border-radius: 50%;
-}
-
-
-/*FLEXBOX*/
+/*----------------------------------------------FLEXBOX-----------------------------------------------*/
 
 body
 {
@@ -393,6 +428,7 @@ section
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    gap: 20px;
 }
 
 .color-picker
@@ -419,8 +455,7 @@ section
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 5px;
-    font-size: small;
+   
 }
 
 .slideContainer
@@ -433,12 +468,7 @@ section
     gap: 15px;
 }
 
-
 .square
 {
     flex-shrink: 0;
 }
-
-
-
-
