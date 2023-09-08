@@ -25,7 +25,6 @@
 
             <div class="tools">
                 <div class="marker-settings">
-                                            <h4>Marker</h4>
                     <div class="swatch">
                         <input type="radio" name="color" class=" default" id="default" checked></input>
                         <input type="radio" name="color" class=" grey" id="grey"></input>
@@ -43,17 +42,20 @@
                 </div><!--Marker settings-->
                 
                 <div class="artboard-settings">
-                                            <h4>Settings</h4>
+                    <div class="reset-section">
+                        <div class="marker-size">
+                            <label>Marker Size</label>
+                            <input type="range" min="10" max="100" value="60" class="marker-size--slider">
+                            <button class="new-artboard">New Artboard</button>
+                        </div>
+                    </div>
                     <div class="colorMode">
                         <p class="colorMode--text">Dark</p>
                         <input type="checkbox" class="switch" id="colorModeChbx">
                         <p class="colorMode--text">Light</p>
                     </div>
-                    <button class="new-artboard">New Artboard</button>
-                    <div class="marker-size">
-                        <label>Marker Size</label>
-                        <input type="range" min="10" max="100" value="60" class="marker-size--slider">
-                    </div>
+                    
+                    
                 </div><!--Artboard settings-->
 
             </div><!--Tools-->
