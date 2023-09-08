@@ -1,123 +1,92 @@
 var grid = document.querySelector(".grid");
-var gridStyle = getComputedStyle(grid);
-var gridPx = parseInt(gridStyle.width);
-var slider = document.querySelector("#gridSlider");
-var resetBtn = document.querySelector(".reset");
+
+var newArtboard = document.querySelector(".new-artboard");
 var eraser = document.querySelector("#eraserCheckbox");
-var lightModeToggle = document.querySelector("#colorModeChbx");
-var darkColors = ["white", "lightgray", "crimson", "darkorange", "gold", "mediumseagreen", "dodgerblue", "darkorchid"];
-var lightColors = ["black", "gainsboro", "indianred", "lightsalmon", "khaki", "darkolivegreen", "lightblue", "peachpuff"];
-var body = document.querySelector("body");
-var tools = document.querySelector(".tools");
-var grid = document.querySelector(".grid");
-var button = document.querySelector("button");
-var slider = document.querySelector(".slider");
-var elArr = [body, tools, grid, button, slider];
+var colorModeSwitch = document.querySelector("#colorModeChbx");
+var markerSize = document.querySelector(".marker-size--slider");
+var swatch = document.querySelectorAll(".swatch input");
+var colorInput = "var(--default)"
 
-var swatch = document.querySelectorAll(".swatchBox");
-var titles = document.querySelectorAll(".title");
-var toggles = document.querySelectorAll(".switch");
-var elGroupArr = [swatch, titles, toggles];
+var colorMode  = {
+    light: {
+        background: "#fff",
+        outline: "#000",
+        default: "#000",
+        grey: "#dcdcdc",
+        red: "#cd5c5c",
+        orange: "#ffa07a",
+        yellow: "#f0e68c",
+        green: "#556b2f",
+        blue: "#add8e6",
+        purple: "#ffdab9",
+    },
+    dark: {
+        background: "#000",
+        outline: "#6495ed",
+        default: "#fff",
+        grey: "#d3d3d3",
+        red: "#dc143c",
+        orange: "#ff8c00",
+        yellow: "#ffd700",
+        green: "#3cb371",
+        blue: "#1e90ff",
+        purple: "#9932cc",
+    }
+}
 
 
-//INITIAL SETTINGS
 
-var defaultColor = "white";
-var colorMode = "dark";
-var mouseDown = false;
-var colorInput;
+generateArtboard(markerSize.value);
+
+newArtboard.onclick = () => generateArtboard(markerSize.value);
+
+swatch.forEach(option => {
+    option.style.background = `var(--${option.id})`
+    option.onclick = (e) => colorInput = `var(--${e.target.id})`
+})
+
+const markerColor = () => (
+    eraser.checked ? "transparent"
+    : colorInput ? colorInput
+    : defaultColor
+)
+
+useMarker();
+
+colorModeSwitch.onclick = () => toggleColorMode();
 
 
-//FUNCTION DECLARATIONS
 
-window.onload = mobileWarning();
-
+const trackMouseStatus = () => {
+    window.onmousedown = () => mouseDown = true;  
+    window.onmouseup = () => mouseDown = false;
+}
 trackMouseStatus();
 
-generateGrid(slider.value);
 
-resetBtn.onclick = () => 
+function generateArtboard(num)
 {
-    generateGrid();
-}
-
-draw();
-
-lightModeToggle.onclick = () => toggleColorMode();
-
-
-
-//FUNCTION DEFINITIONS
-
-function mobileWarning()
-{
-    var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
-    
-    if (mobile) 
-    {
-        alert("This game has not been optimised for smart devices yet. Please return on a computer!");              
-    } else 
-    {
-        return;
-    }
-}
-
-function trackMouseStatus()
-{
-    window.onmousedown = () => 
-    {  
-        mouseDown = true;
-    }  
-    
-    window.onmouseup = () => 
-    {  
-        mouseDown = false;
-    }
-}
-
-function generateGrid(num)
-{
-    grid.textContent = "";
+    grid.innerHTML = ""; 
     var totalSquares = num * num;
-    var squarePx = (gridPx / num);
+    var squareWidth = (grid.clientWidth / num);
 
     for (let i = 0; i < totalSquares; i++)
     {
         var square = document.createElement("div");
         square.classList.add("square");
-        square.setAttribute(`style`, `width:${squarePx}px; height:${squarePx}px;`);
+        square.setAttribute(`style`, `width:${squareWidth}px; height:${squareWidth}px;`);
         grid.appendChild(square);
     }
 }
 
-function getColorInput(index)
-{
-    if (colorMode == "dark")
-        return darkColors[index];
-     
-    else if (colorMode == "light")
-        return lightColors[index];
-}
-
-function markerColor()
-{
-    if (eraser.checked == true)
-        return "transparent";
-    
-    else if (eraser.checked == false && colorInput !== undefined)
-        return colorInput;
-
-    else if (eraser.checked == false && colorInput === undefined)
-        return defaultColor;
-}
-
-function draw() 
+function useMarker() 
 {
     grid.onmousemove = (e) =>
     {
         if (mouseDown)
         {
-            var square = e.path[0];
+            var square = e.toElement;
+
             if (square.classList.contains("square"))
             {
                 square.style.backgroundColor = markerColor();
@@ -127,109 +96,24 @@ function draw()
     
     grid.onmousedown = (e) =>
     {
-        var square = e.path[0];
+        var square = e.toElement;
         square.style.backgroundColor = markerColor();
     }
 }
 
+
 function toggleColorMode()
 {
-    toggleArtboardColors();
+    var root = document.querySelector(':root').style;
 
-    if (lightModeToggle.checked == true)
-    {
-        colorMode = "light";
-        defaultColor = "black";
-        
-        toggleInterfaceColors(elArr, elGroupArr);
-        toggleMarkerColor();
-    }
-
-    if (lightModeToggle.checked == false)
-    {
-        colorMode = "dark";
-        defaultColor = "white";
-
-        toggleInterfaceColors(elArr, elGroupArr);
-        toggleMarkerColor();
-    }
-}
-
-function toggleInterfaceColors(elArr, elGroupArr)
-{
-    elArr.forEach(el =>
-        {
-            el.classList.toggle("light");
+    if (colorModeSwitch.checked) {
+        Object.keys(colorMode.light).forEach(color => {
+            root.setProperty(`--${color}`, colorMode.light[color])
         })
-
-    elGroupArr.forEach(elGroup =>
-        {
-            elGroup.forEach(el =>
-                {
-                    el.classList.toggle("light");
-                })
+    } else {
+        Object.keys(colorMode.dark).forEach(color => {
+            root.setProperty(`--${color}`, colorMode.dark[color])
         })
-
-}
-
-function toggleMarkerColor()
-{
-    for (let i = 0; i < 8; i++)
-    {
-        if (colorInput == darkColors[i])
-        {
-            colorInput = lightColors[i];
-        } else if (colorInput == lightColors[i])
-        {
-            colorInput = darkColors[i];
-        }
-
     }
 }
 
-function toggleArtboardColors()
-{
-    prevMode = lightColors;
-    currentMode = darkColors;
-
-    if (lightModeToggle.checked == true)
-    {
-        prevMode = darkColors;
-        currentMode = lightColors;
-    }
-
-    var squares = document.querySelectorAll(".square");
-
-    squares.forEach(square =>
-    {
-        for (let i = 0; i < 8; i++)
-        {
-            if (square.style.backgroundColor === prevMode[i])
-            {
-                square.style.backgroundColor = currentMode[i];
-            } 
-        }
-    });
-}
-
-function activateButton()
-{
-    if (lightModeToggle.checked == true)
-    {
-        resetBtn.classList.add("autoLight");
-        setTimeout(function()
-        {
-            resetBtn.classList.remove("autoLight");
-        }, 250);
-    } else
-    {
-        resetBtn.classList.add("auto");
-        setTimeout(function()
-        {
-            resetBtn.classList.remove("auto");
-        }, 250);
-    }
-   
-    generateGrid(slider.value);
-
-}

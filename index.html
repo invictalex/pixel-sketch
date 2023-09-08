@@ -11,55 +11,57 @@
     <link rel="icon" type="image/x-icon" href="images/cornflowerblue.png" width="80%" class="favicon">
 
 
-    <title>Pixel Sketch | By Alex Christodoulou</title>
+    <title>Pixel Sketch by invictalex</title>
 </head>
 <body>
     <BODY ondragstart="return false;" ondrop="return false;"></BODY>
     <header>
-        <h3>Pixel Sketch</h3>
-        <p>An entirely <b>vanilla</b> JavaScript programme written by Alex Christodoulou.</p>
+        <p>Developed in vanilla JavaScript, by <a href="https://github.com/invictalex" target="_blank"><b>invictalex</b></a></p>
     </header>
-    <section>
-        <div class="interface">
-            <div class="grid"></div>
+    <section class="interface">
+            
+            <div class="grid">
+        </div><!--Grid-->
+
             <div class="tools">
                 <div class="marker-settings">
-                    <div class="title">
-                        <h4>Marker</h4>
+                                            <h4>Marker</h4>
+                    <div class="swatch">
+                        <input type="radio" name="color" class=" default" id="default" checked></input>
+                        <input type="radio" name="color" class=" grey" id="grey"></input>
+                        <input type="radio" name="color" class=" red" id="red"></input>
+                        <input type="radio" name="color" class=" orange" id="orange"></input>
+                        <input type="radio" name="color" class=" yellow" id="yellow"></input>
+                        <input type="radio" name="color" class=" green" id="green"></input>
+                        <input type="radio" name="color" class=" blue" id="blue"></input>
+                        <input type="radio" name="color" class=" purple" id="purple"></input>
                     </div>
-                    <div class="color-picker">
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(0)"  class="swatchBox" id="default"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(1)" class="swatchBox" id="grey"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(2)" class="swatchBox" id="red"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(3)"  class="swatchBox" id="orange"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(4)"  class="swatchBox" id="yellow"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(5)" class="swatchBox" id="green"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(6)" class="swatchBox" id="blue"></input>
-                        <input type="radio" name="color" onclick="colorInput = getColorInput(7)"  class="swatchBox" id="purple"></input>
+                    <div class="eraser">
+                        <input type="checkbox" class="switch" id="eraserCheckbox">
+                        <p class="eraser--text">Eraser</p>
                     </div>
-                    <div class="toggle">
-                        <div> <input type="checkbox" class="switch" id="eraserCheckbox"> </div>
-                        <div class="toggle-text"><p>Eraser</p></div>
-                    </div>
-                </div>
+                </div><!--Marker settings-->
+                
                 <div class="artboard-settings">
-                    <div class="title">
-                        <h4>Settings</h4>
+                                            <h4>Settings</h4>
+                    <div class="colorMode">
+                        <p class="colorMode--text">Dark</p>
+                        <input type="checkbox" class="switch" id="colorModeChbx">
+                        <p class="colorMode--text">Light</p>
                     </div>
-                    <div class="toggle">
-                        <div class="toggle-text">Dark</div>
-                        <div> <input type="checkbox" class="switch" id="colorModeChbx"> </div>
-                        <div class="toggle-text">Light</div>
+                    <button class="new-artboard">New Artboard</button>
+                    <div class="marker-size">
+                        <label>Marker Size</label>
+                        <input type="range" min="10" max="100" value="60" class="marker-size--slider">
                     </div>
-                    <div class="reset"><button>New Artboard</button></div>
-                    <div class="slideContainer">
-                        <label for="gridSlider">Marker Size</label>
-                        <input type="range" min="10" max="100" value="60" class="slider" onmouseup="activateButton()">
-                    </div>
-                </div>
-            </div>
+                </div><!--Artboard settings-->
+
+            </div><!--Tools-->
+        </section>
+
+        <div class="mobile-disclaimer">
+            <p>This app is not optimised for smaller devices.</p>
         </div>
-    </section>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 </html>
