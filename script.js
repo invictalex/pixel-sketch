@@ -34,8 +34,6 @@ var colorMode  = {
     }
 }
 
-
-
 generateArtboard(markerSize.value);
 
 newArtboard.onclick = () => generateArtboard(markerSize.value);
@@ -55,23 +53,18 @@ useMarker();
 
 colorModeSwitch.onclick = () => toggleColorMode();
 
-
-
 const trackMouseStatus = () => {
     window.onmousedown = () => mouseDown = true;  
     window.onmouseup = () => mouseDown = false;
 }
 trackMouseStatus();
 
-
-function generateArtboard(num)
-{
+function generateArtboard(num){
     grid.innerHTML = ""; 
     var totalSquares = num * num;
     var squareWidth = (grid.clientWidth / num);
 
-    for (let i = 0; i < totalSquares; i++)
-    {
+    for (let i = 0; i < totalSquares; i++){
         var square = document.createElement("div");
         square.classList.add("square");
         square.setAttribute(`style`, `width:${squareWidth}px; height:${squareWidth}px;`);
@@ -79,31 +72,25 @@ function generateArtboard(num)
     }
 }
 
-function useMarker() 
-{
+function useMarker(){
     grid.onmousemove = (e) =>
     {
-        if (mouseDown)
-        {
+        if (mouseDown){
             var square = e.toElement;
 
-            if (square.classList.contains("square"))
-            {
+            if (square.classList.contains("square")){
                 square.style.backgroundColor = markerColor();
             }
         }
     }
     
-    grid.onmousedown = (e) =>
-    {
+    grid.onmousedown = (e) =>{
         var square = e.toElement;
         square.style.backgroundColor = markerColor();
     }
 }
 
-
-function toggleColorMode()
-{
+function toggleColorMode(){
     var root = document.querySelector(':root').style;
 
     if (colorModeSwitch.checked) {
@@ -116,4 +103,3 @@ function toggleColorMode()
         })
     }
 }
-
